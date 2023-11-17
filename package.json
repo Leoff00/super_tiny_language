@@ -1,0 +1,22 @@
+{
+  "name": "jsonparser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsnd --ignore-watch --exit-child --transpile-only -r tsconfig-paths/register src/main.ts",
+    "build": "tsup src --out-dir build",
+    "test-watch": "vitest ./tests/main.test.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.2.0",
+    "tsup": "^7.2.0",
+    "typescript": "^5.2.2",
+    "vite-tsconfig-paths": "^4.2.1",
+    "vitest": "^0.34.6"
+  }
+}
