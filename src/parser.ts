@@ -112,9 +112,9 @@ export class Parser {
 
       default: {
         console.error("Unexpected Token ->", currentTokenType);
-        process.exit(1);
       }
     }
+    process.exit(1);
   }
 
   public produceAST(input: string): Program {
