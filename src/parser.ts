@@ -55,6 +55,7 @@ export class Parser {
         operator,
       } as BinaryExpr;
     }
+
     return left;
   }
 
@@ -75,6 +76,7 @@ export class Parser {
         operator,
       } as BinaryExpr;
     }
+
     return left;
   }
 

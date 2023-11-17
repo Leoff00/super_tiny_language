@@ -6,4 +6,4 @@ const input = readFileSync("./program.foo", { encoding: "utf-8" });
 const parser = new Parser();
 const program = parser.produceAST(input);
 const result = evaluate(program);
-console.log(JSON.stringify(result, null, 2));
+console.log(result);

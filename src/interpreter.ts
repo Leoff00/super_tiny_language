@@ -15,7 +15,7 @@ function evaluateProgram(program: Program): RuntimeValue {
 }
 
 /**
- * Evaulate pure numeric operations with binary operators.
+ * Evaluaate pure numeric operations with binary operators.
  */
 function evaluateNumberExpressions(
   leftHand: NumberValue,
@@ -27,32 +27,38 @@ function evaluateNumberExpressions(
   switch (operator) {
     case "+": {
       result = leftHand.value + rightHand.value;
+      return { type: "number", value: result };
     }
     case "-": {
       result = leftHand.value - rightHand.value;
+      return { type: "number", value: result };
     }
     case "*": {
       if (zeroInExpression) {
         result = 0;
       }
       result = leftHand.value * rightHand.value;
+      return { type: "number", value: result };
     }
     case "/": {
       if (zeroInExpression) {
         result = 0;
       }
       result = leftHand.value / rightHand.value;
+      return { type: "number", value: result };
     }
     case "%": {
       result = leftHand.value % rightHand.value;
+      return { type: "number", value: result };
     }
-  }
 
-  return { value: result, type: "number" };
+    default:
+      return { value: result, type: "number" };
+  }
 }
 
 /**
- * Evaulates expressions following the binary operation type.
+ * Evaluates expressions following the binary operation type.
  */
 function evaluateBinaryExpression(binop: BinaryExpr): RuntimeValue {
   const leftHand = evaluate(binop.left);
