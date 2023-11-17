@@ -22,38 +22,33 @@ function evaluateNumberExpressions(
   rightHand: NumberValue,
   operator: string
 ): NumberValue {
-  let result: number = 0;
   const zeroInExpression = leftHand.value === 0 || rightHand.value === 0;
   switch (operator) {
     case "+": {
-      result = leftHand.value + rightHand.value;
-      return { type: "number", value: result };
+      return { type: "number", value: leftHand.value + rightHand.value };
     }
     case "-": {
-      result = leftHand.value - rightHand.value;
-      return { type: "number", value: result };
+      return { type: "number", value: leftHand.value - rightHand.value };
     }
     case "*": {
       if (zeroInExpression) {
-        result = 0;
+        return { type: "number", value: 0 };
       }
-      result = leftHand.value * rightHand.value;
-      return { type: "number", value: result };
+      return { type: "number", value: leftHand.value * rightHand.value };
     }
     case "/": {
       if (zeroInExpression) {
-        result = 0;
+        return { type: "number", value: 0 };
       }
-      result = leftHand.value / rightHand.value;
-      return { type: "number", value: result };
+      return { type: "number", value: leftHand.value / rightHand.value };
     }
     case "%": {
-      result = leftHand.value % rightHand.value;
-      return { type: "number", value: result };
+      return { type: "number", value: leftHand.value % rightHand.value };
     }
 
     default:
-      return { value: result, type: "number" };
+      console.error(`Not supported operator -> ${operator}`);
+      return { type: "number", value: 0 };
   }
 }
 

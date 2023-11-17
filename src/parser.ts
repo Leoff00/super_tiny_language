@@ -113,7 +113,7 @@ export class Parser {
         return value;
 
       default: {
-        console.error("Unexpected Token ->", currentTokenType);
+        console.error("Unexpected Token ->", this.at().value);
       }
     }
     process.exit(1);
